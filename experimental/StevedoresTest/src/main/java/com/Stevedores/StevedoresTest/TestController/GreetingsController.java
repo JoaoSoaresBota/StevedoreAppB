@@ -21,5 +21,9 @@ public class GreetingsController {
     public String getGreeting(){
         return "hello there, im working!";
     }
+    @RequestMapping(path="/echo", method=RequestMethod.GET)
+    public String echo(String echo){
+        return echo;
+    }
     
 }
