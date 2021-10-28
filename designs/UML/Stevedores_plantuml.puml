@@ -1,0 +1,65 @@
+@startuml
+entity PortServiceOrder {
+    int orderId
+    String shipName
+    LocalDate orderCreated
+    bool isWaterRequested
+    bool isWasteRequested
+    bool isCargoOffloadRequested
+    bool isCargoOnloadRequested
+    bool orderCompleted
+}
+
+entity Bill {
+    int orderId
+    String shipName
+    LocalDate createTime
+    double totalCost
+}
+
+entity Cargo {
+    int cargoId
+    string cargoLocation
+    string cargoDescription
+    string destination
+    string associcatedShipName
+}
+
+ServiceOrderManager -- PortServiceOrder
+BillingManager -- Bill
+CargoManager --|> ServicesManager
+CargoManager -- Cargo
+
+class ServiceOrderManager {
+    PortServiceOrder CreateNewServiceOrder()
+    PortServiceOrder AccessServiceOrder(int id)
+    bool DeletePortServiceOrder(int id)
+    bool UpdateServiceOrder(PortServiceOrder order)
+}
+
+class BillingManager {
+    Bill CreateBill(PortServiceOrder order)
+    double CalculateCost(PortServiceOrder)
+}
+
+class ServicesManager {
+    bool ProvisionWaterToShip()
+    bool RemoveWasteFromShip()
+    bool OffloadCargoFromShip()
+    bool OnloadCargoToShip()
+}
+
+class CargoManager {
+    
+}
+
+class WaterManager {
+
+}
+
+class WasteManager {
+
+}
+
+
+@enduml
