@@ -1,4 +1,9 @@
 @startuml
+
+interface UpdateServiceOrder{
+    +ReplyMessage postCreateOrder()
+}
+
 entity PortServiceOrder {
     int orderId
     String shipName

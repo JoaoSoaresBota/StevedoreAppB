@@ -1,0 +1,16 @@
+@startuml
+
+() "Berth_API" as BA
+() "Order_API" as OA
+
+[Shipping] ..> OA : uses
+
+[Harbour Master] ..> BA : uses
+
+[Stevedore] ..> BA : uses
+
+[Port Owners]
+BA - [Port Owners]
+[Port Owners] - OA
+
+@enduml

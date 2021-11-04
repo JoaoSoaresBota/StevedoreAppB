@@ -1,0 +1,8 @@
+@startuml
+
+"Ship Owner" -> "Port Owner" : Start berth order
+"Port Owner" -> "Berth Catalogue" : Get available berths
+"Ship Owner" <-- "Port Owner" : Berth list
+"Ship Owner" -> "Port Owner" : Select berth
+
+@enduml
