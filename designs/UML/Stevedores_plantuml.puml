@@ -1,0 +1,90 @@
+@startuml
+entity PortServiceOrder {
+    int orderId
+    String shipName
+    LocalDate orderCreated
+    bool isWaterRequested
+    bool isWasteRequested
+    bool isCargoOffloadRequested
+    bool isCargoOnloadRequested
+    bool orderCompleted
+}
+
+entity Bill {
+    int orderId
+    String shipName
+    LocalDate createTime
+    double totalCost
+}
+
+entity Cargo {
+    int cargoId
+    string cargoLocation
+    string cargoDescription
+    string destination
+    string associcatedShipName
+}
+
+entity WaterStore {
+    int waterStoreId
+    string waterStoreLocation
+    double waterStoreReserves
+}
+
+entity WasteStore {
+    int wasteStoreId
+    string wasteStoreLocation
+    double wasteStoreContents
+}
+
+
+ServiceOrderManager -- PortServiceOrder
+BillingManager -- Bill
+ServicesManager --|> CargoManager
+ServicesManager --|> WaterManager
+ServicesManager --|> WasteManager
+CargoManager -- Cargo
+WaterManager -- WaterStore
+WasteManager -- WasteStore
+
+class ServiceOrderManager {
+    PortServiceOrder CreateNewServiceOrder(int orderId, string shipName, LocalDate orderCreated, 
+    bool isWaterRequested, bool isWasteRequested, bool isCargoOffloadRequested, bool isCargoOnloadRequested)
+        PortServiceOrder GetServiceOrder(int id)
+    bool DeletePortServiceOrder(int id)
+    bool UpdateServiceOrder(PortServiceOrder order)
+}
+
+class BillingManager {
+    Bill CreateBill(PortServiceOrder order)
+    double CalculateCost(PortServiceOrder)
+}
+
+class ServicesManager {
+    bool ProvisionWaterToShip(int orderId, string shipName)
+    bool RemoveWasteFromShip(int orderId, string shipName)
+    bool OffloadCargoFromShip(int orderId, string shipName)
+    bool OnloadCargoToShip(int orderId, string shipName)
+}
+
+class CargoManager {
+    string GetLocation(int cargoId)
+    string MoveCargo(int cargoId)
+    bool Load(int cargoId, string shipName)
+    string Offload(int cargoId string shipName)
+}
+
+class WaterManager {
+    double PercentageFull()
+    bool IsEmpty()
+    void RequestWater()
+}
+
+class WasteManager {
+    double PercentageFull()
+    bool IsFull()
+    void DisposeWaste()
+}
+
+
+@enduml
