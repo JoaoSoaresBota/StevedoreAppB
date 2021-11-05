@@ -15,6 +15,7 @@
 	<description>The Stevedores project</description>
 	<properties>
 		<java.version>11</java.version>
+		<springfox-version>2.9.2</springfox-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -34,6 +35,17 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!--SpringFox dependencies -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-version}</version>
 		</dependency>
 	</dependencies>
 
