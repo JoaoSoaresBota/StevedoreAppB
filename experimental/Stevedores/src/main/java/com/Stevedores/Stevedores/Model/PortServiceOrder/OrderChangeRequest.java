@@ -2,6 +2,7 @@ package com.Stevedores.Stevedores.Model.PortServiceOrder;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
 @Entity
@@ -9,6 +10,7 @@ public class OrderChangeRequest {
     private Long id;
     private String uuid;
     private String href;
+    @OneToOne
     private PortServiceOrder changeRequest;
     private LocalDate requestDate;
     private LocalDate approvedDate;
