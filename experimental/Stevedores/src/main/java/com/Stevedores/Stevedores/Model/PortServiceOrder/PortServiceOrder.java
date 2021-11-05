@@ -14,8 +14,7 @@ public class PortServiceOrder {
     private String shipName;
     private LocalDate orderCreated;
     @OneToMany
-    private
-    ArrayList<Resource> requestedResources;
+    private ArrayList<Resource> requestedResources;
     private PortOderStatus orderStatus;
 
 
