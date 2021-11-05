@@ -2,7 +2,7 @@ package com.Stevedores.Stevedores.Model.PortServiceOrder;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+//TODO add JPA annotations
 @Entity
 public class Characteristic {
     private Long id;
