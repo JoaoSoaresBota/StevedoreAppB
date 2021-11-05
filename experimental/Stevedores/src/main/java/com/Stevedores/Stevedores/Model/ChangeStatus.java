@@ -1,4 +1,4 @@
-package com.Stevedores.Stevedores.Model.PortServiceOrder;
+package com.Stevedores.Stevedores.Model;
 
 public enum ChangeStatus {
     REQUESTED,

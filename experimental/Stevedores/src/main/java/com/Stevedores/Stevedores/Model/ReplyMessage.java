@@ -1,8 +1,5 @@
-package com.Stevedores.Stevedores.Controller;
+package com.Stevedores.Stevedores.Model;
 
-
-import com.Stevedores.Stevedores.Model.PortServiceOrder.PortServiceOrder;
-import com.Stevedores.Stevedores.Model.PortServiceOrder.Resource;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
