@@ -10,7 +10,6 @@ public class OrderChangeRequest {
     private Long id;
     private String uuid;
     private String href;
-    @OneToOne
     private PortServiceOrder changeRequest;
     private LocalDate requestDate;
     private LocalDate approvedDate;
@@ -45,9 +44,6 @@ public class OrderChangeRequest {
         this.href = href;
     }
 
-    public PortServiceOrder getChangeRequest() {
-        return changeRequest;
-    }
 
     public void setChangeRequest(PortServiceOrder changeRequest) {
         this.changeRequest = changeRequest;
