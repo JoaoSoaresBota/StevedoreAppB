@@ -1,6 +1,7 @@
 package com.Stevedores.Stevedores.Controller.Interfaces;
 
 
+import com.Stevedores.Stevedores.Model.Party;
 import com.Stevedores.Stevedores.Model.PortServiceOrder;
 import com.Stevedores.Stevedores.Model.Resource;
 
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 
 
 public interface IServiceOrderManager {
-    PortServiceOrder CreateNewServiceOrder(int orderId, String shipName, LocalDate orderCreated, ArrayList<Resource> resources);
-    PortServiceOrder GetServiceOrder(int id);
-    boolean DeletePortServiceOrder(int id);
-    boolean UpdateServiceOrder(PortServiceOrder order);
+    PortServiceOrder CreateNewServiceOrder(String shipName, LocalDate orderCreated, ArrayList<Resource> resources, Party party);
+    PortServiceOrder GetServiceOrder(int id, Party party);
+    boolean DeletePortServiceOrder(int id, Party party);
+    PortServiceOrder UpdateServiceOrder(PortServiceOrder order, Party party);
 
 }
