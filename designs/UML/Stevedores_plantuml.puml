@@ -2,17 +2,88 @@
 
 interface UpdateServiceOrder{
     +ReplyMessage postCreateOrder()
+=======
+interface UpdateServiceOrder{
+    +ReplyMessage postCreateOrder(PortServiceOrder orderRequest, String changeRequestorUuid, String changeReason)
+    +ReplyMessage postCancelOrder(String orderUuid, String changeRequestorUuid, String changeReason)
+    +ReplyMessage postConfirmOrder(String orderUuid, String changeRequestorUuid, String changeReason)
+    +ReplyMessage postPlaceExternalOrder(String orderUuid, String changeRequestorUuid, String changeReason)
+    +ReplyMessage postAddSubOrder(String parentOrderUuid, String childOrderUuid, String changeRequestorUuid, String changeReason)
+    +ReplyMessage postRemoveSubOrder(String parentOrderUuid, String childOrderUuid, String changeRequestorUuid, string changeReason)
+    +ReplyMessage postOrderChangeRequest(PortServiceOrder changeRequest, String changeRequestorUuid, String changeReason)
+    +ReplyMessage postAcceptOrderChangeRequest(String changeRequestUuid, String responseDescription)
+    +ReplyMessage postRejectChangeRequest(String changeRequestUuid, String responseDescription)
+
+}
+
+entity ReplyMessage{
+    List<PortServiceOrder> orderList
+    Integer code
+    String debugMessage
+    List<Resource> resourceList
+    List<OrderChangeRequest> orderChangeRequestList
+    Long limit
+    Long offset
+    Long totalRecords
+}
+
+entity Resource{
+    String href
+    String uuid
+    String name
+    List<Characteristic> characeristics
+    Party resourceOwner
+    ResourceAccess resourceAccess
+    String resourceTypeName
+    String description
+    Long id
+}
+
+entity Characteristic{
+    String name
+    String value
+    String description
+}
+
+enum ResourceAccess{
+    EXTERNAL
+    INTERNAL
+}
+
+entity OrderChangeRequest{
+    PortServiceOrder changeRequest
+    Date requestDate
+    Date approvedDate
+    ChangeStatus status
+    String changeReason
+    Party changeRequestor
+    String responseDescription
+    Long id
+    String uuid
+    String href
+}
+
+enum ChangeStatus{
+    REQUESTED
+    APPROVED
+    REJECTED
 }
 
 entity PortServiceOrder {
     int orderId
     String shipName
     LocalDate orderCreated
-    bool isWaterRequested
-    bool isWasteRequested
-    bool isCargoOffloadRequested
-    bool isCargoOnloadRequested
-    bool orderCompleted
+    List<Resource> requestedResources
+    PortOrderStatus orderStatus
+}
+
+enum PortOrderStatus{
+    IN_PROGRESS
+    CANCELLED
+    CHANGE_REQUESTED
+    CONFIRMED
+    ACKNOWLEDGED
+    PLACED
 }
 
 entity Bill {
@@ -51,6 +122,13 @@ ServicesManager --|> WasteManager
 CargoManager -- Cargo
 WaterManager -- WaterStore
 WasteManager -- WasteStore
+Resource -> Characteristic
+OrderChangeRequest -> ChangeStatus
+PortServiceOrder -> Resource
+PortServiceOrder -> PortOrderStatus
+OrderChangeRequest -> PortServiceOrder
+Resource -> ResourceAccess
+
 
 class ServiceOrderManager {
     PortServiceOrder CreateNewServiceOrder(int orderId, string shipName, LocalDate orderCreated, 
