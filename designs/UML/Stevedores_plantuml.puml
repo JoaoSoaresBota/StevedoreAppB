@@ -1,9 +1,6 @@
 @startuml
 
 interface UpdateServiceOrder{
-    +ReplyMessage postCreateOrder()
-=======
-interface UpdateServiceOrder{
     +ReplyMessage postCreateOrder(PortServiceOrder orderRequest, String changeRequestorUuid, String changeReason)
     +ReplyMessage postCancelOrder(String orderUuid, String changeRequestorUuid, String changeReason)
     +ReplyMessage postConfirmOrder(String orderUuid, String changeRequestorUuid, String changeReason)
