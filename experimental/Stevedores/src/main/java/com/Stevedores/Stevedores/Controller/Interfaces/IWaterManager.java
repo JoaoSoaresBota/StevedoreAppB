@@ -5,5 +5,6 @@ public interface IWaterManager {
     public boolean IsEmpty();
     public boolean RequestWater(double amount);
     public boolean AddWater(double amount);
+    public double GetReserves();
 
 }

@@ -18,11 +18,13 @@ public class WasteManager implements IWasteManager {
 
 
     @Override
-    public void DisposeWaste(double amount) {
+    public boolean DisposeWaste(double amount) {
         if(wasteStore.getWasteStoreAmount()-amount >= 0){
             wasteStore.setWasteStoreAmount(wasteStore.getWasteStoreAmount()-amount);
+            return true;
         }else{
             wasteStore.setWasteStoreAmount(0);
+            return false;
         }
     }
 
@@ -34,5 +36,10 @@ public class WasteManager implements IWasteManager {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public double GetAvailableStorageSpace() {
+        return wasteStore.getWasteStoreMax() - wasteStore.getWasteStoreAmount();
     }
 }

@@ -36,4 +36,9 @@ public class WaterManager implements IWaterManager {
             return false;
         }
     }
+
+    @Override
+    public double GetReserves() {
+        return waterStore.getWaterStoreReserves();
+    }
 }
