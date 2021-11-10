@@ -32,19 +32,23 @@ public class BillingManager implements IBillingManager {
 
     }
 
-    @ApiOperation(value="create new bill",response=Double.class)
-    @RequestMapping(value="/CreateBill",method = RequestMethod.POST,produces="application/json")
-    @Override
-    public Bill CreateBill(PortServiceOrder order) {
+    private double CalculateC(PortServiceOrder order){
 
         double tmp = 0;
         for(int i = 0; i<order.getRequestedResources().size(); i++){
             for(int j = 0; j<order.getRequestedResources().get(0).getCharacteristics().size(); j++) {
                 tmp += order.getRequestedResources().get(i).getCharacteristics().get(j).getValue();
-
-
             }
         }
+        return tmp;
+    }
+
+    @ApiOperation(value="create new bill",response=Double.class)
+    @RequestMapping(value="/CreateBill",method = RequestMethod.POST,produces="application/json")
+    @Override
+    public Bill CreateBill(PortServiceOrder order) {
+
+        double tmp = CalculateC(order);
         Bill b = new Bill(66L, 100, "bigship", LocalDate.now() , tmp);
 
         this.getBills().add(b);
@@ -56,6 +60,8 @@ public class BillingManager implements IBillingManager {
     @RequestMapping(value="/CalculateCost",method = RequestMethod.POST,produces="application/json")
     @Override
     public double CalculateCost(PortServiceOrder order) {
-        return 0;
+        double tmp = CalculateC(order);
+
+        return tmp;
     }
 }
