@@ -1,24 +1,24 @@
 @startuml
 
 interface UpdateServiceOrder{
-    +ReplyMessage postCreateOrder(PortServiceOrder orderRequest, String changeRequestorUuid, String changeReason)
-    +ReplyMessage postCancelOrder(String orderUuid, String changeRequestorUuid, String changeReason)
-    +ReplyMessage postConfirmOrder(String orderUuid, String changeRequestorUuid, String changeReason)
-    +ReplyMessage postPlaceExternalOrder(String orderUuid, String changeRequestorUuid, String changeReason)
-    +ReplyMessage postAddSubOrder(String parentOrderUuid, String childOrderUuid, String changeRequestorUuid, String changeReason)
-    +ReplyMessage postRemoveSubOrder(String parentOrderUuid, String childOrderUuid, String changeRequestorUuid, string changeReason)
-    +ReplyMessage postOrderChangeRequest(PortServiceOrder changeRequest, String changeRequestorUuid, String changeReason)
+    +ReplyMessage postCreateOrder(PortServiceOrder orderRequest, String changeRequesterUuid, String changeReason)
+    +ReplyMessage postCancelOrder(String orderUuid, String changeRequesterUuid, String changeReason)
+    +ReplyMessage postConfirmOrder(String orderUuid, String changeRequesterUuid, String changeReason)
+    +ReplyMessage postPlaceExternalOrder(String orderUuid, String changeRequesterUuid, String changeReason)
+    +ReplyMessage postAddSubOrder(String parentOrderUuid, String childOrderUuid, String changeRequesterUuid, String changeReason)
+    +ReplyMessage postRemoveSubOrder(String parentOrderUuid, String childOrderUuid, String changeRequesterUuid, string changeReason)
+    +ReplyMessage postOrderChangeRequest(PortServiceOrder changeRequest, String changeRequesterUuid, String changeReason)
     +ReplyMessage postAcceptOrderChangeRequest(String changeRequestUuid, String responseDescription)
     +ReplyMessage postRejectChangeRequest(String changeRequestUuid, String responseDescription)
 
 }
 
 entity ReplyMessage{
-    List<PortServiceOrder> orderList
+    ArrayList<PortServiceOrder> orderList
     Integer code
     String debugMessage
-    List<Resource> resourceList
-    List<OrderChangeRequest> orderChangeRequestList
+    ArrayList<Resource> resourceList
+    ArrayList<OrderChangeRequest> orderChangeRequestList
     Long limit
     Long offset
     Long totalRecords
@@ -28,7 +28,7 @@ entity Resource{
     String href
     String uuid
     String name
-    List<Characteristic> characeristics
+    ArrayList<Characteristic> characeristics
     Party resourceOwner
     ResourceAccess resourceAccess
     String resourceTypeName
@@ -53,7 +53,7 @@ entity OrderChangeRequest{
     Date approvedDate
     ChangeStatus status
     String changeReason
-    Party changeRequestor
+    Party changeRequester
     String responseDescription
     Long id
     String uuid
@@ -70,7 +70,7 @@ entity PortServiceOrder {
     int orderId
     String shipName
     LocalDate orderCreated
-    List<Resource> requestedResources
+    ArrayList<Resource> requestedResources
     PortOrderStatus orderStatus
 }
 
