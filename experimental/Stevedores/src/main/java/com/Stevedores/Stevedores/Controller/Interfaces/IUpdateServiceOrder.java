@@ -11,7 +11,7 @@ public interface IUpdateServiceOrder {
     public ReplyMessage postAddSubOrder (String parentOrderUuid, String childOrderUuid, String changeOrderUuid, String changeReason);
     public ReplyMessage postRemoveSubOrder(String parentOrderUuid, String childOrderUuid, String changeRequesterUuid, String changeReason);
     public ReplyMessage postOrderChangeRequest (PortServiceOrder changeRequest, String changeRequesterUuid, String changeReason);
-    public ReplyMessage  postAcceptOrRejectOrderChangeRequest(String changeRequestUuid, String responseDescription, boolean acceptOrReject);
+    public ReplyMessage postAcceptOrRejectOrderChangeRequest(String changeRequestUuid, String responseDescription, boolean acceptOrReject);
 
 
 
