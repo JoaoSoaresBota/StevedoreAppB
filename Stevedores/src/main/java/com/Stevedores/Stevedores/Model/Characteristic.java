@@ -7,7 +7,30 @@ import javax.persistence.Id;
 public class Characteristic {
     private Long id;
     private String name;
-    private String value;
+
+    public Characteristic(Long id, String name, int value, String description) {
+        this.id = id;
+        this.name = name;
+        this.value = value;
+        this.description = description;
+    }
+
+    public Characteristic() {
+        this.id = 1L;
+        this.name = "testName";
+        this.value = 20;
+        this.description = "testDescription";
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    private double value;
     private String description;
 
 
@@ -30,13 +53,7 @@ public class Characteristic {
         this.name = name;
     }
 
-    public String getValue() {
-        return value;
-    }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
 
     public String getDescription() {
         return description;
