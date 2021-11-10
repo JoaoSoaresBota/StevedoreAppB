@@ -4,6 +4,6 @@ import com.Stevedores.Stevedores.Model.Bill;
 import com.Stevedores.Stevedores.Model.PortServiceOrder;
 
 public interface IBillingManager {
-    public Bill CreateBill(PortServiceOrder order);
+    public Bill CreateBill(PortServiceOrder bills);
     public double CalculateCost(PortServiceOrder order);
 }

@@ -12,6 +12,13 @@ public class Bill {
     private LocalDate createTime;
     private double totalCost;
 
+    public Bill(Long id, int orderId, String shipName, LocalDate createTime, double totalCost) {
+        this.id = id;
+        this.orderId = orderId;
+        this.shipName = shipName;
+        this.createTime = createTime;
+        this.totalCost = totalCost;
+    }
 
 
     public void setId(Long id) {
