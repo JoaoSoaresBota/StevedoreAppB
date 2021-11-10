@@ -7,6 +7,10 @@ public class WaterManager implements IWaterManager {
 
     private WaterStore waterStore;
 
+    public WaterManager(WaterStore waterStore){
+        this.waterStore = waterStore;
+    }
+
     @Override
     public double PercentageFull() {
         return waterStore.getWaterStoreReserves()/waterStore.getWaterStoreMax();

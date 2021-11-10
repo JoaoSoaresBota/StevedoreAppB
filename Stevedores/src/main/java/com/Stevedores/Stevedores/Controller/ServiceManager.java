@@ -15,6 +15,12 @@ public class ServiceManager implements IServiceManager {
     private WasteManager wasteManager;
     private WaterManager waterManager;
 
+
+    public ServiceManager(WasteManager wasteManager, WaterManager waterManager) {
+        this.wasteManager = wasteManager;
+        this.waterManager = waterManager;
+    }
+
     @ApiOperation(value="provide water to ship",response= Boolean.class)
     @RequestMapping(value="/ProvisionWaterToShip",method = RequestMethod.POST,produces="application/json")
     @Override
