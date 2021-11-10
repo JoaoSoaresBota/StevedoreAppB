@@ -15,7 +15,7 @@ public class PortServiceOrder {
     private LocalDate orderCreated;
     @OneToMany
     private ArrayList<Resource> requestedResources;
-    private PortOderStatus orderStatus;
+    private PortOrderStatus orderStatus;
 
 
 
@@ -60,11 +60,11 @@ public class PortServiceOrder {
         this.requestedResources = requestedResources;
     }
 
-    public PortOderStatus getOrderStatus() {
+    public PortOrderStatus getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(PortOderStatus orderStatus) {
+    public void setOrderStatus(PortOrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
 }

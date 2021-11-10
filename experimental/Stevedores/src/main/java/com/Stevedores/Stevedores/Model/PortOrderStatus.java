@@ -1,6 +1,6 @@
 package com.Stevedores.Stevedores.Model;
 
-public enum PortOderStatus {
+public enum PortOrderStatus {
     IN_PROGRESS,
     CANCELLED,
     CHANGE_REQUESTED,
