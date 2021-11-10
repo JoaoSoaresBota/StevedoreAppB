@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 //TODO add JPA annotations
 @Entity
@@ -12,6 +13,35 @@ public class Resource {
 
     private String href;
     private String uuid;
+
+    public Resource(Long id, String href, String uuid, String name, ArrayList<Characteristic> characteristics, ResourceAccess resourceAccess, String resourceTypeName, String description) {
+        this.id = id;
+        this.href = href;
+        this.uuid = uuid;
+        this.name = name;
+        this.characteristics = characteristics;
+        this.resourceAccess = resourceAccess;
+        this.resourceTypeName = resourceTypeName;
+        this.description = description;
+    }
+
+    public Resource(Long id) {
+        this.id = id;
+        this.href = "testHref";
+        this.uuid = "testUuid";
+        this.name = "testName";
+        this.characteristics = new ArrayList<Characteristic>(Arrays.asList(
+            new Characteristic()
+        ));
+        this.resourceAccess = resourceAccess;
+        this.resourceTypeName = resourceTypeName;
+        this.description = description;
+    }
+
+    public Resource() {}
+
+
+
     private String name;
     @OneToMany
     private ArrayList<Characteristic> characteristics;
