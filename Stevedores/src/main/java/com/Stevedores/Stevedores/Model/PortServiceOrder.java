@@ -5,12 +5,40 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 //TODO add JPA annotations
 @Entity
 public class PortServiceOrder {
 
     private Long id;
     private int orderId;
+
+    public PortServiceOrder(Long id, int orderId, String shipName, LocalDate orderCreated, ArrayList<Resource> requestedResources, PortOrderStatus orderStatus) {
+        this.id = id;
+        this.orderId = orderId;
+        this.shipName = shipName;
+        this.orderCreated = orderCreated;
+        this.requestedResources = requestedResources;
+        this.orderStatus = orderStatus;
+    }
+
+    public PortServiceOrder() {
+        this.id = 1L;
+        this.orderId = 1;
+        this.shipName = "testShipName";
+        this.orderCreated = LocalDate.now();
+        this.requestedResources = new ArrayList<Resource>(Arrays.asList(
+            new Resource(1L),
+            new Resource(2L),
+            new Resource(3L),
+            new Resource(4L)
+        ));
+        this.orderStatus = orderStatus;
+    }
+
+
+
     private String shipName;
     private LocalDate orderCreated;
     @OneToMany
