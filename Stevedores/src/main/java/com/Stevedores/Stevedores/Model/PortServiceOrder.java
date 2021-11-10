@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -27,14 +28,14 @@ public class PortServiceOrder {
         this.id = 1L;
         this.orderId = 1;
         this.shipName = "testShipName";
-        this.orderCreated = LocalDate.now();
+        this.orderCreated = LocalDate.of(2021, Month.NOVEMBER,10);
         this.requestedResources = new ArrayList<Resource>(Arrays.asList(
             new Resource(1L),
             new Resource(2L),
             new Resource(3L),
             new Resource(4L)
         ));
-        this.orderStatus = orderStatus;
+        this.orderStatus = orderStatus.PLACED;
     }
 
 

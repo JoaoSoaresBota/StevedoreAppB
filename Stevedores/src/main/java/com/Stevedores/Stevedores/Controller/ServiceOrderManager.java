@@ -2,6 +2,7 @@ package com.Stevedores.Stevedores.Controller;
 
 import com.Stevedores.Stevedores.Controller.Interfaces.IServiceOrderManager;
 import com.Stevedores.Stevedores.Model.Party;
+import com.Stevedores.Stevedores.Model.PortOrderStatus;
 import com.Stevedores.Stevedores.Model.PortServiceOrder;
 import com.Stevedores.Stevedores.Model.Resource;
 import io.swagger.annotations.Api;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @Api(value="/api/OrderManager",produces="application/json")
 @RestController
@@ -30,7 +33,8 @@ public class ServiceOrderManager implements IServiceOrderManager {
     Creates a new Port Service order and returns it so that it can be displayed.
     */
     public PortServiceOrder CreateNewServiceOrder(String shipName, LocalDate orderCreated, ArrayList<Resource> resources, Party party) {
-        return new PortServiceOrder();
+
+        return new PortServiceOrder(1L,1,shipName,orderCreated,resources, PortOrderStatus.PLACED);
     }
 
     /*
