@@ -17,14 +17,14 @@ This api is used by admins to edit Service Orders
 @RequestMapping("/api/admin/EditOrders")
 public class UpdateServiceOrder implements IUpdateServiceOrder {
 
-    @ApiOperation(value="create new port service order",response=PortServiceOrder.class)
+    @ApiOperation(value="create new port service order",response=ReplyMessage.class)
     @RequestMapping(value="/CreateOrder",method = RequestMethod.POST,produces="application/json")
     @Override
     public ReplyMessage postCreateOrder(PortServiceOrder orderRequest, String changeRequesterUuid, String changeReason) {
         return null;
     }
 
-    @ApiOperation(value="cancel port service order",response=PortServiceOrder.class)
+    @ApiOperation(value="cancel port service order",response=ReplyMessage.class)
     @RequestMapping(value="/CancelOrder",method = RequestMethod.DELETE,produces="application/json")
     @Override
     public ReplyMessage postCancelOrder(String orderUuid, String changeRequestUuid, String changeReason) {
@@ -32,7 +32,7 @@ public class UpdateServiceOrder implements IUpdateServiceOrder {
     }
 
 
-    @ApiOperation(value="Confirm port service order",response=PortServiceOrder.class)
+    @ApiOperation(value="Confirm port service order",response=ReplyMessage.class)
     @RequestMapping(value="/ConfirmOrder",method = RequestMethod.POST,produces="application/json")
     @Override
     public ReplyMessage postConfirmOrder(String orderUuid, String changeRequesterUuid, String changeReason) {
@@ -44,7 +44,7 @@ public class UpdateServiceOrder implements IUpdateServiceOrder {
         return null;
     }
 
-    @ApiOperation(value="Confirm port service order",response=PortServiceOrder.class)
+    @ApiOperation(value="Confirm port service order",response=ReplyMessage.class)
     @RequestMapping(value="/PlaceExternalOrder",method = RequestMethod.POST,produces="application/json")
     @Override
     public ReplyMessage postPlaceExternalOrder(String orderUuid, String changeRequesterUuid, String ChangeReason) {
@@ -64,14 +64,14 @@ public class UpdateServiceOrder implements IUpdateServiceOrder {
         return null;
     }
 
-    @ApiOperation(value="create new request to change an order port service order",response=PortServiceOrder.class)
+    @ApiOperation(value="create new request to change an order port service order",response=ReplyMessage.class)
     @RequestMapping(value="/OrderChangeRequest",method = RequestMethod.PUT,produces="application/json")
     @Override
     public ReplyMessage postOrderChangeRequest(PortServiceOrder changeRequest, String changeRequesterUuid, String changeReason) {
         return null;
     }
 
-    @ApiOperation(value="Accept or reject a change request",response=PortServiceOrder.class)
+    @ApiOperation(value="Accept or reject a change request",response=ReplyMessage.class)
     @RequestMapping(value="/AcceptOrRejectOrderChangeRequest",method = RequestMethod.POST,produces="application/json")
     @Override
     public ReplyMessage postAcceptOrRejectOrderChangeRequest(String changeRequestUuid, String responseDescription, boolean acceptOrReject) {

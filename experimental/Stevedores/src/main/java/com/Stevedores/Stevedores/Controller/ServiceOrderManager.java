@@ -46,7 +46,7 @@ public class ServiceOrderManager implements IServiceOrderManager {
     /*
     Deletes a PortServiceOrder by id and returns if it worked
     */
-    @ApiOperation(value="Delete an existing service order by its id",response=PortServiceOrder.class)
+    @ApiOperation(value="Delete an existing service order by its id",response=Boolean.class)
     @RequestMapping(value="/DeleteServiceOrder",method = RequestMethod.DELETE,produces="application/json")
     @Override
     public boolean DeletePortServiceOrder(int id, Party party) {
