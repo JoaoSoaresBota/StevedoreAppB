@@ -13,7 +13,7 @@ public class PortServiceOrder {
 
     private String href;
     private String uuid;
-    private String shipName;
+    private String shipUuid;
     private Date orderCreated;
     private Date startDate;
     private Date endDate;
@@ -25,8 +25,83 @@ public class PortServiceOrder {
     private ArrayList<Resource> requestedResources;
     private PortOrderStatus orderStatus;
 
+    public String getHref() {
+        return href;
+    }
 
+    public void setHref(String href) {
+        this.href = href;
+    }
 
+    public String getUuid() {
+        return uuid;
+    }
 
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 
+    public String getShipUuid() {
+        return shipUuid;
+    }
+
+    public void setShipUuid(String shipUuid) {
+        this.shipUuid = shipUuid;
+    }
+
+    public Date getOrderCreated() {
+        return orderCreated;
+    }
+
+    public void setOrderCreated(Date orderCreated) {
+        this.orderCreated = orderCreated;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public PartyHref getOrderOwner() {
+        return orderOwner;
+    }
+
+    public void setOrderOwner(PartyHref orderOwner) {
+        this.orderOwner = orderOwner;
+    }
+
+    public List<OrderChangeRequestHref> getChangeRequests() {
+        return changeRequests;
+    }
+
+    public void setChangeRequests(List<OrderChangeRequestHref> changeRequests) {
+        this.changeRequests = changeRequests;
+    }
+
+    public ArrayList<Resource> getRequestedResources() {
+        return requestedResources;
+    }
+
+    public void setRequestedResources(ArrayList<Resource> requestedResources) {
+        this.requestedResources = requestedResources;
+    }
+
+    public PortOrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(PortOrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 }

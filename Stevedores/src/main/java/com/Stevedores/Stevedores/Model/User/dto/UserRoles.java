@@ -1,4 +1,4 @@
-package com.Stevedores.Stevedores.Model.user.dto;
+package com.Stevedores.Stevedores.Model.User.dto;
 
 public enum UserRoles {
 

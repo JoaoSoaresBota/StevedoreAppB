@@ -1,7 +1,7 @@
 package com.Stevedores.Stevedores.Model.party.dto;
 
 
-import com.Stevedores.Stevedores.Model.user.dto.User;
+import com.Stevedores.Stevedores.Model.User.dto.User;
 
 import java.util.Set;
 
