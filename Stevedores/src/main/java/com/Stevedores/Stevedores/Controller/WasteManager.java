@@ -2,7 +2,9 @@ package com.Stevedores.Stevedores.Controller;
 
 import com.Stevedores.Stevedores.Controller.Interfaces.IWasteManager;
 import com.Stevedores.Stevedores.Model.WasteStore;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WasteManager implements IWasteManager {
     private WasteStore wasteStore;
 

@@ -1,4 +1,7 @@
-package com.Stevedores.Stevedores.Model;
+package com.Stevedores.Stevedores.Model.PortServiceOrder.dto;
+
+import com.Stevedores.Stevedores.Model.PortServiceOrder.dto.ChangeStatus;
+import com.Stevedores.Stevedores.Model.PortServiceOrder.dto.PortServiceOrder;
 
 import java.time.LocalDate;
 

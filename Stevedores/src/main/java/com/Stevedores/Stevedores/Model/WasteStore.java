@@ -1,7 +1,9 @@
 package com.Stevedores.Stevedores.Model;
 
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class WasteStore {
 
     private String wasteStoreLocation;

@@ -1,10 +1,7 @@
+/*
 import com.Stevedores.Stevedores.Controller.BillingManager;
-import com.Stevedores.Stevedores.Controller.ServiceManager;
-import com.Stevedores.Stevedores.Controller.WasteManager;
-import com.Stevedores.Stevedores.Controller.WaterManager;
 import com.Stevedores.Stevedores.Model.Bill;
-import com.Stevedores.Stevedores.Model.PortServiceOrder;
-import com.Stevedores.Stevedores.Model.WaterStore;
+import com.Stevedores.Stevedores.Model.PortServiceOrder.dto.PortServiceOrder;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -32,3 +29,4 @@ public class BillingManagerTests {
 
 
 }
+*/

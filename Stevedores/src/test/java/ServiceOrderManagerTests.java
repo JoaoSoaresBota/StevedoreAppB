@@ -1,18 +1,8 @@
-import com.Stevedores.Stevedores.Controller.ServiceOrderManager;
-import com.Stevedores.Stevedores.Model.Party;
-import com.Stevedores.Stevedores.Model.PortServiceOrder;
-import com.Stevedores.Stevedores.Model.Resource;
-import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class ServiceOrderManagerTests {
 
+    /*
     @Test
     public void CreatePortServiceOrderTest(){
         ServiceOrderManager serviceOrderManager = new ServiceOrderManager();
@@ -32,5 +22,5 @@ public class ServiceOrderManagerTests {
 
 
     }
-
+    */
 }

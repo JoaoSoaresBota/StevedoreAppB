@@ -1,7 +1,8 @@
+/*
 package com.Stevedores.Stevedores.Controller;
 
 import com.Stevedores.Stevedores.Controller.Interfaces.IUpdateServiceOrder;
-import com.Stevedores.Stevedores.Model.PortServiceOrder;
+import com.Stevedores.Stevedores.Model.PortServiceOrder.dto.PortServiceOrder;
 import com.Stevedores.Stevedores.Model.ReplyMessage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+*/
 /*
 This api is used by admins to edit Service Orders
- */
+ *//*
+
 @Api(value="/api/admin/EditOrders",produces="application/json")
 @RestController
 @RequestMapping("/api/admin/EditOrders")
@@ -36,11 +39,13 @@ public class UpdateServiceOrder implements IUpdateServiceOrder {
     @RequestMapping(value="/ConfirmOrder",method = RequestMethod.POST,produces="application/json")
     @Override
     public ReplyMessage postConfirmOrder(String orderUuid, String changeRequesterUuid, String changeReason) {
-        /*
+        */
+/*
         I am not 100% sure what this method is supposed to do?
         Do all orders need manual administrator confirmation?
         Or is this to confirm an order that was denied by the system manually?
-         */
+         *//*
+
         return null;
     }
 
@@ -51,9 +56,11 @@ public class UpdateServiceOrder implements IUpdateServiceOrder {
         return null;
     }
 
-    /*
+    */
+/*
     I am not sure what sub orders are, i will not create the api doc for them for now
-     */
+     *//*
+
     @Override
     public ReplyMessage postAddSubOrder(String parentOrderUuid, String childOrderUuid, String changeOrderUuid, String changeReason) {
         return null;
@@ -79,3 +86,4 @@ public class UpdateServiceOrder implements IUpdateServiceOrder {
     }
 
 }
+*/

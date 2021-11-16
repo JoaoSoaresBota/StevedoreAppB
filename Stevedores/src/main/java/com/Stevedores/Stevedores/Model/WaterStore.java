@@ -1,7 +1,10 @@
 package com.Stevedores.Stevedores.Model;
 
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WaterStore {
     private Long id;
     private String waterStoreLocation;

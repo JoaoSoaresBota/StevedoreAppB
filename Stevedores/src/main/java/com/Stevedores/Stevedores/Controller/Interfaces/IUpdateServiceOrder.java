@@ -1,6 +1,6 @@
 package com.Stevedores.Stevedores.Controller.Interfaces;
 
-import com.Stevedores.Stevedores.Model.PortServiceOrder;
+import com.Stevedores.Stevedores.Model.PortServiceOrder.dto.PortServiceOrder;
 import com.Stevedores.Stevedores.Model.ReplyMessage;
 
 public interface IUpdateServiceOrder {
