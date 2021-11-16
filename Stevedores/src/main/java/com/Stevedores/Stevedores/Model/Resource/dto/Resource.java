@@ -2,9 +2,14 @@ package com.Stevedores.Stevedores.Model.Resource.dto;
 
 import com.Stevedores.Stevedores.Model.party.dto.Party;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 //TODO add JPA annotations
+@Entity
 public class Resource {
 
+    private Long id;
     private String href;
     private String uuid;
     private String name;
@@ -14,6 +19,7 @@ public class Resource {
     private String resourceTypeName;
     private Party resourceOwner;
     private ResourceAccess resourceController;
+
 
 
     public String getHref() {
@@ -40,4 +46,12 @@ public class Resource {
         this.name = name;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
+    }
 }

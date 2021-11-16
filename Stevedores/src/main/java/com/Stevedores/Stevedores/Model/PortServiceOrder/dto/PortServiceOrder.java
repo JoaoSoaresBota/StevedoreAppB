@@ -2,29 +2,44 @@ package com.Stevedores.Stevedores.Model.PortServiceOrder.dto;
 
 
 import com.Stevedores.Stevedores.Model.Resource.dto.Resource;
+import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 //TODO add JPA annotations
-
+@Entity
+@Table(name = "PortServiceOrers")
 public class PortServiceOrder {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @ApiModelProperty(hidden = true)
+    private Long id;
+
     private String href;
-    private String uuid;
+    @GeneratedValue(generator = "UUID")
+    @ApiModelProperty(hidden = true)
+    private UUID uuid = UUID.randomUUID();
     private String shipUuid;
     private LocalDate orderCreated;
     private LocalDate startDate;
     private LocalDate endDate;
     //The party that created the order
+    @ManyToOne
     private PartyHref orderOwner;
     //A list of all changes that were made to the order
+    @OneToMany
     private List<OrderChangeRequestHref> changeRequests;
-    //A lost of all required resources
+    //A list of all required resources
+    @OneToMany
     private ArrayList<Resource> requestedResources;
     private PortOrderStatus orderStatus;
+
 
     public String getHref() {
         return href;
@@ -32,14 +47,6 @@ public class PortServiceOrder {
 
     public void setHref(String href) {
         this.href = href;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     public String getShipUuid() {
@@ -60,6 +67,14 @@ public class PortServiceOrder {
 
     public LocalDate getStartDate() {
         return startDate;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public void setStartDate(LocalDate startDate) {
@@ -104,5 +119,14 @@ public class PortServiceOrder {
 
     public void setOrderStatus(PortOrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
     }
 }
