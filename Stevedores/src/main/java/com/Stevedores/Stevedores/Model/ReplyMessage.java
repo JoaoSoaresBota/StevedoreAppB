@@ -1,21 +1,17 @@
 package com.Stevedores.Stevedores.Model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 import java.util.ArrayList;
 //TODO add JPA annotations
-@Entity
-public class ReplyMessage {
-    private Long id;
 
-    @OneToMany
+public class ReplyMessage {
+
+
     private
     ArrayList<PortServiceOrder> orderList;
     private int code;
     private String debugMessage;
-    @OneToMany
     private
     ArrayList<Resource> resourceList;
     /*TODO
@@ -34,14 +30,6 @@ public class ReplyMessage {
 
 
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
-    }
 
     public ArrayList<PortServiceOrder> getOrderList() {
         return orderList;

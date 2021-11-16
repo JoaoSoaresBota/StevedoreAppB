@@ -49,7 +49,7 @@ public class BillingManager implements IBillingManager {
     public Bill CreateBill(PortServiceOrder order) {
 
         double tmp = CalculateC(order);
-        Bill b = new Bill(66L, 100, "bigship", LocalDate.now() , tmp);
+        Bill b = new Bill( 100, "bigship", LocalDate.now() , tmp);
 
         this.getBills().add(b);
 

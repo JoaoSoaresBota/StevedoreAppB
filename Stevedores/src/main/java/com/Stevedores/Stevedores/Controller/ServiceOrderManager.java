@@ -34,7 +34,7 @@ public class ServiceOrderManager implements IServiceOrderManager {
     */
     public PortServiceOrder CreateNewServiceOrder(String shipName, LocalDate orderCreated, ArrayList<Resource> resources, Party party) {
 
-        return new PortServiceOrder(1L,1,shipName,orderCreated,resources, PortOrderStatus.PLACED);
+        return new PortServiceOrder(1,shipName,orderCreated,resources, PortOrderStatus.PLACED);
     }
 
     /*

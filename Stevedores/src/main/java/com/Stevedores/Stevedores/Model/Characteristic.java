@@ -1,22 +1,18 @@
 package com.Stevedores.Stevedores.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
 //TODO add JPA annotations
-@Entity
+
 public class Characteristic {
-    private Long id;
     private String name;
 
-    public Characteristic(Long id, String name, int value, String description) {
-        this.id = id;
+    public Characteristic(String name, int value, String description) {
         this.name = name;
         this.value = value;
         this.description = description;
     }
 
     public Characteristic() {
-        this.id = 1L;
         this.name = "testName";
         this.value = 20;
         this.description = "testDescription";
@@ -33,17 +29,6 @@ public class Characteristic {
     private double value;
     private String description;
 
-
-
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;

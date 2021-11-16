@@ -17,7 +17,7 @@ public class BillingManagerTests {
     public void BillingTest(){
         BillingManager b = new BillingManager();
         Bill actual = b.CreateBill(new PortServiceOrder());
-        Bill expected = new Bill(66L, 100, "bigship", LocalDate.now() , 80.0);
+        Bill expected = new Bill( 100, "bigship", LocalDate.now() , 80.0);
         assertThat(actual).usingRecursiveComparison().isEqualTo(expected);
     }
 

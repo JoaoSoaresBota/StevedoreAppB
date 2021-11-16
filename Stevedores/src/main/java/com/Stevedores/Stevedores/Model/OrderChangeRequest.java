@@ -1,13 +1,9 @@
 package com.Stevedores.Stevedores.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
-@Entity
+
 public class OrderChangeRequest {
-    private Long id;
     private String uuid;
     private String href;
     private PortServiceOrder changeRequest;
@@ -19,14 +15,7 @@ public class OrderChangeRequest {
     private String responseDescription;
 
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    @Id
-    public Long getId() {
-        return id;
-    }
 
     public String getUuid() {
         return uuid;

@@ -18,10 +18,10 @@ public class ServiceOrderManagerTests {
         ServiceOrderManager serviceOrderManager = new ServiceOrderManager();
         PortServiceOrder expected = new PortServiceOrder();
         ArrayList<Resource> tempResources = new ArrayList<Resource>(Arrays.asList(
-                new Resource(1L),
-                new Resource(2L),
-                new Resource(3L),
-                new Resource(4L)
+                new Resource(),
+                new Resource(),
+                new Resource(),
+                new Resource()
         ));
 
         PortServiceOrder actual = serviceOrderManager.CreateNewServiceOrder("testShipName", LocalDate.of(2021, Month.NOVEMBER,10),tempResources,new Party());
