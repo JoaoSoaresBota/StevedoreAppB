@@ -1,4 +1,4 @@
-package com.Stevedores.Stevedores.Model;
+package com.Stevedores.Stevedores.Model.Resource.dto;
 
 public enum ResourceAccess {
     EXTERNAL,

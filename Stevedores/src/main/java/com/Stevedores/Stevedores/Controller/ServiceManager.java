@@ -1,3 +1,4 @@
+/*
 package com.Stevedores.Stevedores.Controller;
 
 import com.Stevedores.Stevedores.Controller.Interfaces.IServiceManager;
@@ -36,9 +37,11 @@ public class ServiceManager implements IServiceManager {
     }
 
 
-    /*
-    Not sure if cargo is our task
     */
+/*
+    Not sure if cargo is our task
+    *//*
+
     @ApiOperation(value="offload cargo from ship",response= Boolean.class)
     @RequestMapping(value="/OffloadCargoFromShip",method = RequestMethod.POST,produces="application/json")
     @Override
@@ -53,3 +56,4 @@ public class ServiceManager implements IServiceManager {
         return false;
     }
 }
+*/

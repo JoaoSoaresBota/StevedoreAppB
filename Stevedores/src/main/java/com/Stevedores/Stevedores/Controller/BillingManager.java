@@ -1,8 +1,9 @@
+/*
 package com.Stevedores.Stevedores.Controller;
 
 import com.Stevedores.Stevedores.Controller.Interfaces.IBillingManager;
 import com.Stevedores.Stevedores.Model.Bill;
-import com.Stevedores.Stevedores.Model.PortServiceOrder;
+import com.Stevedores.Stevedores.Model.PortServiceOrder.dto.PortServiceOrder;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +50,7 @@ public class BillingManager implements IBillingManager {
     public Bill CreateBill(PortServiceOrder order) {
 
         double tmp = CalculateC(order);
-        Bill b = new Bill(66L, 100, "bigship", LocalDate.now() , tmp);
+        Bill b = new Bill( 100, "bigship", LocalDate.now() , tmp);
 
         this.getBills().add(b);
 
@@ -65,3 +66,4 @@ public class BillingManager implements IBillingManager {
         return tmp;
     }
 }
+*/
