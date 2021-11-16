@@ -1,27 +1,25 @@
 package com.Stevedores.Stevedores.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
 import java.time.LocalDate;
 
-@Entity
+
 public class Bill {
-    private Long id;
     private int orderId;
     private String shipName;
     private LocalDate createTime;
     private double totalCost;
 
-
-
-    public void setId(Long id) {
-        this.id = id;
+    public Bill(int orderId, String shipName, LocalDate createTime, double totalCost) {
+        this.orderId = orderId;
+        this.shipName = shipName;
+        this.createTime = createTime;
+        this.totalCost = totalCost;
     }
 
-    @Id
-    public Long getId() {
-        return id;
-    }
+
+
+
 
     public int getOrderId() {
         return orderId;

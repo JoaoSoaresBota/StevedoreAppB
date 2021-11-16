@@ -19,7 +19,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket produceApi(){
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.Stevedores.Stevedores.Controller")).build();
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.Stevedores.Stevedores.Model")).build();
     }
 
     private ApiInfo apiInfo(){

@@ -2,10 +2,16 @@ package com.Stevedores.Stevedores.Controller;
 
 import com.Stevedores.Stevedores.Controller.Interfaces.IWaterManager;
 import com.Stevedores.Stevedores.Model.WaterStore;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WaterManager implements IWaterManager {
 
     private WaterStore waterStore;
+
+    public WaterManager(WaterStore waterStore){
+        this.waterStore = waterStore;
+    }
 
     @Override
     public double PercentageFull() {
