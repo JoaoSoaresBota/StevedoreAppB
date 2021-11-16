@@ -3,6 +3,7 @@ package com.Stevedores.Stevedores.Model.PortServiceOrder.dto;
 
 import com.Stevedores.Stevedores.Model.Resource.dto.Resource;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,9 +15,9 @@ public class PortServiceOrder {
     private String href;
     private String uuid;
     private String shipUuid;
-    private Date orderCreated;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate orderCreated;
+    private LocalDate startDate;
+    private LocalDate endDate;
     //The party that created the order
     private PartyHref orderOwner;
     //A list of all changes that were made to the order
@@ -49,27 +50,27 @@ public class PortServiceOrder {
         this.shipUuid = shipUuid;
     }
 
-    public Date getOrderCreated() {
+    public LocalDate getOrderCreated() {
         return orderCreated;
     }
 
-    public void setOrderCreated(Date orderCreated) {
+    public void setOrderCreated(LocalDate orderCreated) {
         this.orderCreated = orderCreated;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
