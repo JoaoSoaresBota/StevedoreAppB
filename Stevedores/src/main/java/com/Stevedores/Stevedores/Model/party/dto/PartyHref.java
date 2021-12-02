@@ -1,4 +1,4 @@
-package com.Stevedores.Stevedores.Model.PortServiceOrder.dto;
+package com.Stevedores.Stevedores.Model.party.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 

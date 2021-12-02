@@ -2,18 +2,17 @@ package com.Stevedores.Stevedores.Model.PortServiceOrder.dto;
 
 
 import com.Stevedores.Stevedores.Model.Resource.dto.Resource;
+import com.Stevedores.Stevedores.Model.party.dto.PartyHref;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 //TODO add JPA annotations
 @Entity
-@Table(name = "PortServiceOrers")
+@Table(name = "PortServiceOrders")
 public class PortServiceOrder {
 
     @Id
@@ -30,16 +29,24 @@ public class PortServiceOrder {
     private LocalDate startDate;
     private LocalDate endDate;
     //The party that created the order
-    @ManyToOne
+    @OneToOne
     private PartyHref orderOwner;
     //A list of all changes that were made to the order
-    @OneToMany
+
+    @OneToMany()
     private List<OrderChangeRequestHref> changeRequests;
     //A list of all required resources
-    @OneToMany
-    private ArrayList<Resource> requestedResources;
+    @OneToMany()
+    private List<Resource> requestedResources;
     private PortOrderStatus orderStatus;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getHref() {
         return href;
@@ -47,6 +54,14 @@ public class PortServiceOrder {
 
     public void setHref(String href) {
         this.href = href;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public String getShipUuid() {
@@ -67,14 +82,6 @@ public class PortServiceOrder {
 
     public LocalDate getStartDate() {
         return startDate;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
     }
 
     public void setStartDate(LocalDate startDate) {
@@ -105,11 +112,11 @@ public class PortServiceOrder {
         this.changeRequests = changeRequests;
     }
 
-    public ArrayList<Resource> getRequestedResources() {
+    public List<Resource> getRequestedResources() {
         return requestedResources;
     }
 
-    public void setRequestedResources(ArrayList<Resource> requestedResources) {
+    public void setRequestedResources(List<Resource> requestedResources) {
         this.requestedResources = requestedResources;
     }
 
@@ -119,14 +126,5 @@ public class PortServiceOrder {
 
     public void setOrderStatus(PortOrderStatus orderStatus) {
         this.orderStatus = orderStatus;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Id
-    public Long getId() {
-        return id;
     }
 }
