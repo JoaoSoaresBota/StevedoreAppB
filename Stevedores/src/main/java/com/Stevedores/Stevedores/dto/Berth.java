@@ -1,25 +1,37 @@
 package com.Stevedores.Stevedores.dto;
 
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.*;
 import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name="berths")
 public class Berth {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @ApiModelProperty(hidden = true)
     private int pk;
 
-    private UUID uuid;
+    private UUID uuid = null;
     private double latitude;
     private double longitude;
 
+    // Empty default constructor needed for H2 in-memory testing DB.
     public Berth() {
 
+    }
+
+    // Constructor used for testing; NOT to be called in the main program.
+    public Berth(double latitude, double longitude) {
+        this.uuid = UUID.randomUUID();
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getPk() {
@@ -30,11 +42,11 @@ public class Berth {
         this.pk = pk;
     }
 
-    public UUID getUuid() {
+    public UUID getUUID() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    public void setUUID(UUID uuid) {
         this.uuid = uuid;
     }
 
@@ -52,5 +64,10 @@ public class Berth {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "[pk=" + pk + ", uuid=" + uuid + ", latitude=" + latitude + ", longitude=" + longitude + "]";
     }
 }

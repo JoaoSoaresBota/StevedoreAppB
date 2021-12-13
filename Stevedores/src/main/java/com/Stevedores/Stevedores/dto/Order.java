@@ -1,17 +1,22 @@
 package com.Stevedores.Stevedores.dto;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "orders")
+@Table(name="orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long pk;
+    @ApiModelProperty(hidden = true)
+    private int pk;
+
     @GeneratedValue(generator = "UUID")
     private UUID uuid;
 
@@ -25,7 +30,7 @@ public class Order {
     private LocalDateTime orderDate;
 
     @Column(name="dayOfArrival", columnDefinition="TIMESTAMP")
-    private LocalDateTime dayOfArrival;
+    private LocalDate dayOfArrival;
 
     @Column(name="allocatedStart", columnDefinition="TIMESTAMP")
     private LocalDateTime allocatedStart;
@@ -48,36 +53,48 @@ public class Order {
     @Transient
     private final double[] fares = { 311.85, 589.23, 189.32 };
 
-
     public Order() {
 
     }
 
-
-
-    public void setPk(Long id) {
-        this.pk = id;
-    }
-
-    @Id
-    public Long getPk() {
+    public int getPk() {
         return pk;
     }
 
-    public UUID getUuid() {
+    public void setPk(int pk) {
+        this.pk = pk;
+    }
+
+    public UUID getUUID() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    public void setUUID(UUID uuid) {
         this.uuid = uuid;
     }
 
-    public String getReason() {
-        return reason;
+    public Ship getShip() {
+        return ship;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setShip(Ship ship) {
+        this.ship = ship;
+    }
+
+    public Pilot getPilot() {
+        return pilot;
+    }
+
+    public void setPilot(Pilot pilot) {
+        this.pilot = pilot;
+    }
+
+    public LocalDate getDayOfArrival() {
+        return dayOfArrival;
+    }
+
+    public void setDayOfArrival(LocalDate dayOfArrival) {
+        this.dayOfArrival = dayOfArrival;
     }
 
     public LocalDateTime getOrderDate() {
@@ -86,14 +103,6 @@ public class Order {
 
     public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
-    }
-
-    public LocalDateTime getDayOfArrival() {
-        return dayOfArrival;
-    }
-
-    public void setDayOfArrival(LocalDateTime dayOfArrival) {
-        this.dayOfArrival = dayOfArrival;
     }
 
     public LocalDateTime getAllocatedStart() {
@@ -120,30 +129,6 @@ public class Order {
         this.changeRequests = changeRequests;
     }
 
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
-
-    public Ship getShip() {
-        return ship;
-    }
-
-    public void setShip(Ship ship) {
-        this.ship = ship;
-    }
-
-    public Pilot getPilot() {
-        return pilot;
-    }
-
-    public void setPilot(Pilot pilot) {
-        this.pilot = pilot;
-    }
-
     public Berth getBerth() {
         return berth;
     }
@@ -152,8 +137,28 @@ public class Order {
         this.berth = berth;
     }
 
-    public double[] getFares() {
-        return fares;
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public double getFare() {
+        return fare;
+    }
+
+    public void setFare(double fare) {
+        this.fare = fare;
     }
 
     @Override
