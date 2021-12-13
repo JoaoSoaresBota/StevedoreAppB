@@ -1,4 +1,10 @@
 package com.Stevedores.Stevedores.repository;
 
-public class OrderChangeRequestRepository extends JpaRepository<>{
+import com.Stevedores.Stevedores.dto.OrderChangeRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OrderChangeRequestRepository extends JpaRepository<OrderChangeRequest, Integer> {
+
 }
