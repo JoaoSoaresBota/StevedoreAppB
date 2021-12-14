@@ -1,4 +1,4 @@
-package com.stevedores.stevedores.controller;
+package com.stevedores.stevedores.service;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,20 +7,16 @@ import com.Stevedores.Stevedores.dto.Order;
 import com.Stevedores.Stevedores.dto.OrderStatus;
 import com.Stevedores.Stevedores.dto.Pilot;
 import com.Stevedores.Stevedores.service.OrderService;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Slf4j
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @SpringBootTest()
 public class RestTest {
@@ -35,7 +31,7 @@ public class RestTest {
     }
 
     @Test
-    public void crud(){
+    public void orderCrud(){
         //Testing if order can be saved and retrieved
         Order order = new Order();
         Pilot testPilot = new Pilot();
@@ -53,8 +49,6 @@ public class RestTest {
         Order foundOrder = orderService.findByUUID(order.getUUID());
 
         assertThat(foundOrder.getUUID()).isEqualTo(order.getUUID());
-
-
     }
 
 
