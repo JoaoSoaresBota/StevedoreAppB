@@ -35,13 +35,19 @@
         <!--SpringFox dependencies -->
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox-version}</version>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox-version}</version>
+            <artifactId>springfox-spi</artifactId>
+            <version>3.0.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <version>3.0.0</version>
         </dependency>
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
