@@ -1,4 +1,5 @@
-INSERT INTO resource_stores values (1,623.4,0);
-INSERT INTO resource_stores values (2,623.4,1);
-INSERT INTO resource_stores values (3,623.4,2);
-INSERT INTO resource_stores values (4,623.4,3);
+INSERT INTO resource_store values (1,623.4,'Water');
+INSERT INTO resource_store values (2,623.4,'Waste');
+INSERT INTO resource_store values (3,623.4,'Food');
+INSERT INTO resource_store values (4,623.4,'Cargo');
+
