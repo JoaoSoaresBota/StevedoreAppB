@@ -5,6 +5,7 @@ import com.Stevedores.Stevedores.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -18,5 +19,9 @@ public class OrderDAO {
 
     public Order findByUUID(UUID uuid){
         return orderRepository.findOneByUuid(uuid);
+    }
+
+    public List<Order> findAll(){
+        return orderRepository.findAll();
     }
 }
