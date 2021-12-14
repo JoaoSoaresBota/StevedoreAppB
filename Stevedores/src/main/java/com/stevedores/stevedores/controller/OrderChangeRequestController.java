@@ -25,7 +25,7 @@ public class OrderChangeRequestController {
     //TODO implement
     @GetMapping(value="/{uuid}",produces = "application/json")
     @ApiOperation("Return an orderChangeRequest by UUID.")
-    public String FindOrderByUUID(@PathVariable String uuid){
+    public String FindOrderByUUID(@PathVariable UUID uuid){
         log.info("GET: /api/orderChangeRequest/{uuid} called, uuid="+uuid);
         orderChangeRequestService.placeOrderChangeRequest();
         return uuid.toString();
