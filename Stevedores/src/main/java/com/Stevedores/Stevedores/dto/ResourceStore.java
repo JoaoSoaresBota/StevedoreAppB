@@ -5,8 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "resources")
-public class Resource {
+@Table(name="resourceStores")
+public class ResourceStore {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @ApiModelProperty(hidden = true)
@@ -14,6 +14,9 @@ public class Resource {
 
     private double amount;
     private ResourceType type;
+
+
+
 
 
     public void setPk(Long pk) {
