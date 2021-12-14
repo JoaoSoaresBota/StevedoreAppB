@@ -16,8 +16,21 @@ public class ResourceStore {
     private ResourceType type;
 
 
+    public double getAmount() {
+        return amount;
+    }
 
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 
+    public ResourceType getType() {
+        return type;
+    }
+
+    public void setType(ResourceType type) {
+        this.type = type;
+    }
 
     public void setPk(Long pk) {
         this.pk = pk;

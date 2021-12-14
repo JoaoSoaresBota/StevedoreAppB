@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -44,7 +42,7 @@ public class Order {
     private List<UUID> changeRequests;
 
     @OneToMany
-    private List<Resource> resources;
+    private List<RequestedResource> resources;
 
     @OneToOne(cascade = {CascadeType.ALL})
     private Ship ship;
