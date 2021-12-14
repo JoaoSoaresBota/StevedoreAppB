@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface ResourceStoreRepository extends JpaRepository<ResourceStore, Integer> {
 
-    @Query(value = "SELECT * FROM resourceStores WHERE type = :type AND amount >= :amount", nativeQuery = true)
+    @Query(value = "SELECT * FROM resource_store WHERE type = :type AND amount >= :amount", nativeQuery = true)
     public ResourceStore findByTypeAndAmount(@Param("type")ResourceType type, @Param("amount") double amount);
 }

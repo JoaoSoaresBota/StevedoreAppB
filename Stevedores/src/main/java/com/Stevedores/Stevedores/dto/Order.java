@@ -1,5 +1,6 @@
 package com.Stevedores.Stevedores.dto;
 
+
 import io.swagger.annotations.ApiModelProperty;
 
 
@@ -19,6 +20,7 @@ public class Order {
 
     @GeneratedValue(generator = "UUID")
     private UUID uuid;
+
 
     private OrderStatus status;
 

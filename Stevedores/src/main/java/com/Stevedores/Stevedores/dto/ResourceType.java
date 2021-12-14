@@ -4,5 +4,8 @@ public enum ResourceType {
     WATER,
     WASTE,
     FOOD,
-    CARGO
+    CARGO;
+
+
+
 }

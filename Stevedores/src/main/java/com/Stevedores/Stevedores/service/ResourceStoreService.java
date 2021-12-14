@@ -4,26 +4,30 @@ import com.Stevedores.Stevedores.dao.ResourceStoreDAO;
 import com.Stevedores.Stevedores.dto.RequestedResource;
 import com.Stevedores.Stevedores.dto.ResourceStore;
 import com.Stevedores.Stevedores.dto.ResourceType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class ResourceStoreService {
     @Autowired
     private ResourceStoreDAO resourceStoreDAO;
 
-    public boolean processResourceRequest(RequestedResource r){
-        ResourceStore resourceStores = resourceStoreDAO.findByTypeAndAmount(r.getType(),r.getAmount());
 
-        if(resourceStores != null){
-            resourceStores.setAmount(resourceStores.getAmount()-r.getAmount());
-            resourceStoreDAO.save(resourceStores);
+    public boolean processResourceRequest(RequestedResource r){
+        ResourceStore resourceStore = resourceStoreDAO.findByTypeAndAmount(r.getType(),r.getAmount());
+
+
+        if(resourceStore != null){
+            resourceStore.setAmount(resourceStore.getAmount()-r.getAmount());
+            resourceStoreDAO.save(resourceStore);
             return true;
-        }else {
+       }else {
             return false;
-        }
+       }
     }
 
     public boolean processMultipleResourceRequests(List<RequestedResource> r){

@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 
 @Entity
-@Table(name="resourceStores")
+//@Table(name="resource_stores")
 public class ResourceStore {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
