@@ -2,10 +2,12 @@ package com.Stevedores.Stevedores.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,6 +42,9 @@ public class Order {
 
     @ElementCollection
     private List<UUID> changeRequests;
+
+    @OneToMany
+    private List<Resource> resources;
 
     @OneToOne(cascade = {CascadeType.ALL})
     private Ship ship;
@@ -161,21 +166,4 @@ public class Order {
         this.fare = fare;
     }
 
-    @Override
-    public String toString() {
-        String orderDateString = orderDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-        String dayOfArrivalString = dayOfArrival.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
-        String allocatedStartString = "";
-        String allocatedEndString = "";
-
-        if (allocatedStart != null && allocatedEndString != null) {
-            allocatedStartString = allocatedStart.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-            allocatedEndString = allocatedEnd.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-        }
-
-        return "Order [allocatedStart=" + allocatedStartString + ", allocatedEnd=" + allocatedEndString + ", berth=" + berth + ", pk=" + pk
-                + ", uuid=" + uuid + ", orderDate=" + orderDateString + ", pilot=" + pilot + ", dayOfArrival=" + dayOfArrivalString
-                + ", ship=" + ship + ", status=" + status.name() + ", reason=" + reason + ", fare=" + fare + "]";
-    }
 }
