@@ -3,6 +3,7 @@ package com.stevedores.stevedores.service;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.Stevedores.Stevedores.StevedoresApplication;
 import com.Stevedores.Stevedores.dto.Order;
 import com.Stevedores.Stevedores.dto.OrderStatus;
 import com.Stevedores.Stevedores.dto.Pilot;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@SpringBootTest()
+@SpringBootTest(classes = StevedoresApplication.class)
 public class RestTest {
 /*
 
