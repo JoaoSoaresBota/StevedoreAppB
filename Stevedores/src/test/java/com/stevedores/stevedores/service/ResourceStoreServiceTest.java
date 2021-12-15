@@ -1,5 +1,6 @@
 package com.stevedores.stevedores.service;
 
+import com.Stevedores.Stevedores.StevedoresApplication;
 import com.Stevedores.Stevedores.dto.RequestedResource;
 import com.Stevedores.Stevedores.dto.ResourceType;
 import com.Stevedores.Stevedores.service.ResourceStoreService;
@@ -13,7 +14,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Slf4j
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@SpringBootTest()
+@SpringBootTest(classes = StevedoresApplication.class)
 public class ResourceStoreServiceTest {
 
 /*
