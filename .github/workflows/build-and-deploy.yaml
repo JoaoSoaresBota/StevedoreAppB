@@ -31,7 +31,7 @@ jobs:
       - name: "Build with Maven"
         working-directory: ./Stevedores
         run: |
-          mvn compile jib:dockerBuild
+          mvn clean compile com.google.cloud.tools:jib-maven-plugin:3.0.0:build \-Dimage=ghcr.io/${{ github.repository_owner }}/stevedores-b:${{ env.RELEASE_VERSION }}
       - name: Send Deploy Notification to Integration Repo
         uses: peter-evans/repository-dispatch@v1
         with:
