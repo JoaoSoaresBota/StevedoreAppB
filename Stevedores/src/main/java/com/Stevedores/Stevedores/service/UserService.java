@@ -12,6 +12,15 @@ public class UserService {
     private UserDAO userDAO;
 
     public User createUser(User user){
+
+
+
+        if(user.getPk()==null || user.getUsername()==null || user.getPassword()==null
+                || user.getFirstName()==null|| user.getLastName()==null || user.getAddress()==null)
+            return null;
+
+
+
         return userDAO.save(user);
     }
 }
