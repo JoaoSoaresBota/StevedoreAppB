@@ -14,7 +14,7 @@ public class UserService {
     public User createUser(User user){
 
 
-
+        //returns a message in UserController(api call) if collum is missing
         if(user.getPk()==null || user.getUsername()==null || user.getPassword()==null
                 || user.getFirstName()==null|| user.getLastName()==null || user.getAddress()==null)
             return null;
