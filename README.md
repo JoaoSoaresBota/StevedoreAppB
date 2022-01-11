@@ -6,6 +6,6 @@
 
 ## **Team**
 + Daniel (Team leader)
-+ Joao
++ João
 + Alpaslan
 + Sven
